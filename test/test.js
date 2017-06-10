@@ -26,14 +26,25 @@ describe('once instantiated', function() {
   });
 
   describe('#updateTestStatus', function() {
-    it('PUTs updated status', function(done) {
-      let status = false;
-      testObject.UpdateTestStatus('e492a939-3717-434c-9421-187a4c4a2361', status, function(resp){
+    it('Updates the Test status', function(done) {
+      let status = {"passed": true};
+      testObject.UpdateTestStatus('e492a939-3717-434c-9421-187a4c4a2361', status, function(resp) {
         resp.should.equal(204);
         done();
       })
     })
   });
+
+  describe('#skipTest', function() {
+    it('Sets the test status as skipped', function(done) {
+      testObject.SkipTest('e492a939-3717-434c-9421-187a4c4a2361', function(resp) {
+        resp.should.equal(204);
+        done();
+      })
+    })
+  });
+
+  
 })
 
 
