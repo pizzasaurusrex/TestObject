@@ -12,16 +12,28 @@ describe('TestObject', function() {
   })
 });
 
+describe('once instantiated', function() {
+  beforeEach(function () {
+    let config = {
+      username: process.env.TEST_OBJECT_USERNAME,
+      password: process.env.TEST_OBJECT_SAMPLE_API_KEY
+    }
+    testObject = new TestObject(config);
+  });
+
+  afterEach(function () {
+    testObject = null;
+  });
+
+  describe('#updateTestStatus', function() {
+    it('PUTs updated status', function(done) {
+      let status = false;
+      testObject.UpdateTestStatus('e492a939-3717-434c-9421-187a4c4a2361', status, function(resp){
+        resp.should.equal(204);
+        done();
+      })
+    })
+  });
+})
 
 
-// const uri = `https://app.testobject.com/api/rest/v1/appium/session/${session_id}/test`; 
-// const data = JSON.stringify({ "passed": true });
-
-// var options = {
-//   method: 'PUT',
-//   url: uri,
-//   body: data,
-//   headers:{
-//     'Content-Type': 'application/json',
-//   }
-// }
