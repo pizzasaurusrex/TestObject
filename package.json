@@ -1,5 +1,5 @@
 {
-  "name": "testobject API",
+  "name": "testobject_API",
   "version": "1.0.0",
   "description": "A wrapper around the Test Object rest API",
   "main": "index.js",
