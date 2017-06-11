@@ -38,6 +38,17 @@ const myAccount = new TestObject({
   password: "your-test-object-password"
 });
 
+/* 
+  update the job status.
+   
+  updateTest() must be invoced either during test execution or ~10 seconds after tests complete execution (timeOut may vary based on your distance to the 10 servers)
+*/
+
+ myAccount.updateTest(sessionID, {"passed": false});
+
+//set job status === skipped
+ myAccount.skipTest(sessionID);
+
 ```
 
 ## Supported Methods
