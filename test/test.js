@@ -114,7 +114,16 @@ describe('once instantiated', function() {
     });
   });
 
+  describe('default #Reports', function() {
+    it('should Get something', function(done) {
+      testObject.Reports(null, function(resp, body) {
+        console.log(body);
+        resp.statusCode.should.equal(200);
+        done();
+      })
 
+    })
+  })
 })
 
 
