@@ -30,7 +30,7 @@ npm test
 ## Writing a script
 
 ```javascript
-const testObject = require('testobject_api');');
+const myAccount = require('testobject_api');
 
 const myAccount = new TestObject({
   username: "your-TestObject-username",
