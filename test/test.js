@@ -16,7 +16,8 @@ describe('once instantiated', function() {
   beforeEach(function () {
     let config = {
       username: process.env.TEST_OBJECT_USERNAME,
-      password: process.env.TEST_OBJECT_SAMPLE_API_KEY
+      apiKey: process.env.TEST_OBJECT_SAMPLE_API_KEY,
+      password: process.env.TEST_OBJECT_MASTER
     }
     testObject = new TestObject(config);
   });
@@ -29,22 +30,63 @@ describe('once instantiated', function() {
     it('Updates the Test status', function(done) {
       let status = {"passed": true};
       testObject.UpdateTestStatus('e492a939-3717-434c-9421-187a4c4a2361', status, function(resp) {
-        resp.should.equal(204);
+        resp.statusCode.should.equal(204);
         done();
-      })
-    })
+      });
+    });
   });
 
   describe('#skipTest', function() {
     it('Sets the test status as skipped', function(done) {
       testObject.SkipTest('e492a939-3717-434c-9421-187a4c4a2361', function(resp) {
-        resp.should.equal(204);
+        resp.statusCode.should.equal(204);
         done();
-      })
-    })
+      });
+    });
   });
 
-  
+  describe('Devices #getDevices' , function() {
+    it('GETs Devices', function(done) {
+      testObject.GetDevices (function(resp, body) {
+        body.should.be.a('string');
+        resp.statusCode.should.equal(200);
+        done();
+      });
+    });
+  });
+
+  describe('Devices #getAllDevices', function() {
+    it('GETs all devices including private devices', function(done) {
+      testObject.GetAllDevices(function(resp, body) {
+        body.should.be.a('string');
+        resp.statusCode.should.equal(200);
+        done();
+      });
+    });
+  });
+
+  describe('Devices #getAllAvailableDevices', function() {
+    it('GETs all available devices including private devices', function(done) {
+      testObject.GetAllAvailableDevices(function(resp, body) {
+        body.should.be.a('string');
+        resp.statusCode.should.equal(200);
+        done();
+      });
+    });
+  });
+
+  describe('Devices #getAvailable', function() {
+    it('GETs all available devices', function(done) {
+      testObject.GetAvailable(function(resp, body) {
+        body.should.be.a('string');
+        resp.statusCode.should.equal(200);
+        done();
+      });
+    });
+  });
+
+
+
 })
 
 
