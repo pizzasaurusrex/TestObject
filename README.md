@@ -1,4 +1,4 @@
-# node-testobject 
+# node testobject_api
 
 Wrapper around the Test Object REST API for [Node.js](http://nodejs.org/).
 
@@ -40,8 +40,11 @@ const myAccount = new TestObject({
 
 /* 
   update the job status.
-   
-  updateTest() must be invoced either during test execution or ~10 seconds after tests complete execution (timeOut may vary based on your distance to the 10 servers)
+
+  updateTest() must be invoked either during test execution
+  or ~10 seconds after tests complete execution
+  (timeOut may vary based on your distance to the Test Object device farm)
+  
 */
 
  myAccount.updateTest(sessionID, {"passed": false});

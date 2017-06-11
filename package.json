@@ -1,6 +1,6 @@
 {
   "name": "testobject_api",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A wrapper around the Test Object rest API",
   "main": "index.js",
   "scripts": {
