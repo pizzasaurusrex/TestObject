@@ -5,7 +5,7 @@ Wrapper around the Test Object REST API for [Node.js](http://nodejs.org/).
 ## Install
 
 ```shell
-npm install TestObject
+npm install testobject_api
 ```
 
 ## Test
