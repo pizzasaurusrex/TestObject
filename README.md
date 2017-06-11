@@ -111,7 +111,7 @@ var myAccount = new TestObject({
          Get a list of popular devices based on region.
        </td>
        <td>
-         getPopularDevices(cb) -> cb(err, res, body) 
+         getPopular(cb) -> cb(err, res, body) 
        </td>
      </tr>
   </tbody>

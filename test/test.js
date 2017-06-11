@@ -96,7 +96,7 @@ describe('once instantiated', function() {
 
   describe('Devices #getPopular', function() {
     it('GETs popular devices based on region', function(done) {
-      testObject.getPopularDevices(function(err, resp, body) {
+      testObject.getPopular(function(err, resp, body) {
         body.should.be.a('string');
         resp.statusCode.should.equal(200);
         done();
