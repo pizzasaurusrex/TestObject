@@ -50,6 +50,70 @@ var myAccount = new TestObject({
     </tr>
   </thead>
   <tbody>
+    <tr>
+       <td>
+         PUT appium/session/${sessionID}/test <br />
+         Update the status of a test as passed or failed
+       </td>
+       <td>
+         updateTest(sessionID, status, cb) -> cb(err, res, body) 
+       </td>
+     </tr>
+      <tr>
+       <td>
+         PUT appium/session/${sessionID}/test/skiptest <br />
+         Update the test status to skipped
+       </td>
+       <td>
+         skipTest(sessionID, cb) -> cb(err, res, body) 
+       </td>
+     </tr>
+     <tr>
+       <td>
+         GET /devices <br />
+         Get allReturns a list of all devices, including those not currently available for testing
+       </td>
+       <td>
+         getDevices(cb) -> cb(err, res, body) 
+       </td>
+     </tr>
+     <tr>
+       <td>
+         GET /devices/all <br />
+         Get a list of all devices, including those that are currently unavailable for testing. 
+         This endpoint requires API Key authentication and will also return your private devices.
+       </td>
+       <td>
+         getAllDevices(cb) -> cb(err, res, body) 
+       </td>
+     </tr>
+     <tr>
+       <td>
+         GET /devices/all/available <br />
+         Get a list of all devices available for testing. This endpoint requires API Key authentication, and will also return your private devices
+       </td>
+       <td>
+         getAllAvailable(cb) -> cb(err, res, body) 
+       </td>
+     </tr>
+     <tr>
+       <td>
+         GET /devices/available <br />
+         Get a list of all devices available for testing.
+       </td>
+       <td>
+         getAvailable(cb) -> cb(err, res, body) 
+       </td>
+     </tr>
+     <tr>
+       <td>
+         GET devices/popular <br />
+         Get a list of popular devices based on region.
+       </td>
+       <td>
+         getPopularDevices(cb) -> cb(err, res, body) 
+       </td>
+     </tr>
   </tbody>
 </table>
 

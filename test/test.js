@@ -29,7 +29,7 @@ describe('once instantiated', function() {
   describe('#updateTestStatus', function() {
     it('Updates the Test status', function(done) {
       let status = {"passed": true};
-      testObject.UpdateTestStatus('e492a939-3717-434c-9421-187a4c4a2361', status, function(resp) {
+      testObject.updateTest('e492a939-3717-434c-9421-187a4c4a2361', status, function(err, resp) {
         resp.statusCode.should.equal(204);
         done();
       });
@@ -38,7 +38,7 @@ describe('once instantiated', function() {
 
   describe('#skipTest', function() {
     it('Sets the test status as skipped', function(done) {
-      testObject.SkipTest('e492a939-3717-434c-9421-187a4c4a2361', function(resp) {
+      testObject.skipTest('e492a939-3717-434c-9421-187a4c4a2361', function(err, resp) {
         resp.statusCode.should.equal(204);
         done();
       });
@@ -47,7 +47,7 @@ describe('once instantiated', function() {
 
   describe('Devices #getDevices' , function() {
     it('GETs Devices', function(done) {
-      testObject.GetDevices (function(resp, body) {
+      testObject.getDevices (function(err, resp, body) {
         body.should.be.a('string');
         resp.statusCode.should.equal(200);
         done();
@@ -57,7 +57,7 @@ describe('once instantiated', function() {
 
   describe('Devices #getAllDevices', function() {
     it('GETs all devices including private devices', function(done) {
-      testObject.GetAllDevices(function(resp, body) {
+      testObject.getAllDevices(function(err, resp, body) {
         body.should.be.a('string');
         resp.statusCode.should.equal(200);
         done();
@@ -67,7 +67,7 @@ describe('once instantiated', function() {
 
   describe('Devices #getAllAvailableDevices', function() {
     it('GETs all available devices including private devices', function(done) {
-      testObject.GetAllAvailableDevices(function(resp, body) {
+      testObject.getAllAvailable(function(err, resp, body) {
         body.should.be.a('string');
         resp.statusCode.should.equal(200);
         done();
@@ -77,7 +77,7 @@ describe('once instantiated', function() {
 
   describe('Devices #getAvailable', function() {
     it('GETs all available devices', function(done) {
-      testObject.GetAvailable(function(resp, body) {
+      testObject.getAvailable(function(err, resp, body) {
         body.should.be.a('string');
         resp.statusCode.should.equal(200);
         done();
@@ -87,7 +87,7 @@ describe('once instantiated', function() {
 
   describe('Devices #getDeviceImage', function() {
     it('GETs image of selected device', function(done) {
-      testObject.GetDeviceImage('iPad_Air_16GB_real', function(resp, body) {
+      testObject.getDeviceImage('iPad_Air_16GB_real', function(err, resp, body) {
         resp.statusCode.should.equal(200);
         done();
       });
@@ -96,7 +96,7 @@ describe('once instantiated', function() {
 
   describe('Devices #getPopular', function() {
     it('GETs popular devices based on region', function(done) {
-      testObject.GetPopularDevices(function(resp, body) {
+      testObject.getPopularDevices(function(err, resp, body) {
         body.should.be.a('string');
         resp.statusCode.should.equal(200);
         done();
@@ -106,8 +106,7 @@ describe('once instantiated', function() {
 
   describe('Devices #getDeviceStatus', function() {
     it('GETs the status of a selected device', function(done) {
-      testObject.GetDeviceStatus('iPad_Air_16GB_real', function(resp, body) {
-        console.log(body);
+      testObject.getDeviceStatus('iPad_Air_16GB_real', function(err, resp, body) {
         resp.statusCode.should.equal(200);
         done();
       });
@@ -116,8 +115,7 @@ describe('once instantiated', function() {
 
   describe('default #Reports', function() {
     it('should Get something', function(done) {
-      testObject.Reports(null, function(resp, body) {
-        console.log(body);
+      testObject.reports(null, function(err, resp, body) {
         resp.statusCode.should.equal(200);
         done();
       })
