@@ -24,7 +24,7 @@ npm test
 
 ## Authors
 
-- Sean Enright ([Sean ENright](https://github.com/pizzasaurusrex))
+- Sean Enright ([Sean Enright](https://github.com/pizzasaurusrex))
 
 
 ## Writing a script

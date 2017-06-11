@@ -85,6 +85,34 @@ describe('once instantiated', function() {
     });
   });
 
+  describe('Devices #getDeviceImage', function() {
+    it('GETs image of selected device', function(done) {
+      testObject.GetDeviceImage('iPad_Air_16GB_real', function(resp, body) {
+        resp.statusCode.should.equal(200);
+        done();
+      });
+    });
+  });
+
+  describe('Devices #getPopular', function() {
+    it('GETs popular devices based on region', function(done) {
+      testObject.GetPopularDevices(function(resp, body) {
+        body.should.be.a('string');
+        resp.statusCode.should.equal(200);
+        done();
+      });
+    });
+  });
+
+  describe('Devices #getDeviceStatus', function() {
+    it('GETs the status of a selected device', function(done) {
+      testObject.GetDeviceStatus('iPad_Air_16GB_real', function(resp, body) {
+        console.log(body);
+        resp.statusCode.should.equal(200);
+        done();
+      });
+    });
+  });
 
 
 })
