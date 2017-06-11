@@ -30,9 +30,9 @@ npm test
 ## Writing a script
 
 ```javascript
-var TestObject = require('TestObject');
+const testObject = require('testobject_api');');
 
-var myAccount = new TestObject({
+const myAccount = new TestObject({
   username: "your-TestObject-username",
   apiKey: "your-test-object-api-key",
   password: "your-test-object-password"
