@@ -8,6 +8,11 @@
   },
   "author": "pizzasaurusrex",
   "license": "ISC",
+  "url" : "https://github.com/pizzasaurusrex/TestObject/issues",
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/pizzasaurusrex/TestObject"
+  },
   "dependencies": {
     "request": "^2.81.0"
   },
