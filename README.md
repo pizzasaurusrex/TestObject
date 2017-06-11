@@ -24,56 +24,21 @@ npm test
 
 ## Authors
 
-- Sean ENright ([Sean ENright](https://github.com/pizzasaurusrex))
+- Sean Enright ([Sean ENright](https://github.com/pizzasaurusrex))
 
 
 ## Writing a script
 
 ```javascript
-var SauceLabs = require('saucelabs');
+var TestObject = require('TestObject');
 
-var myAccount = new SauceLabs({
-  username: "your-sauce-username",
-  password: "your-sauce-api-key"
+var myAccount = new TestObject({
+  username: "your-TestObject-username",
+  apiKey: "your-test-object-api-key",
+  password: "your-test-object-password"
 });
 
-myAccount.getAccountDetails(function (err, res) {
-  console.log(res);
-  myAccount.getServiceStatus(function (err, res) {
-    // Status of the Sauce Labs services
-    console.log(res);
-    myAccount.getAllBrowsers(function (err, res) {
-      // List of all browser/os combinations currently supported on Sauce Labs
-      console.log(res);
-      myAccount.getJobs(function (err, jobs) {
-        // Get a list of all your jobs
-        for (var k in jobs) {
-          if ( jobs.hasOwnProperty( k )) {
-            myAccount.showJob(jobs[k].id, function (err, res) {
-              var str = res.id + ": Status: " + res.status;
-              if (res.error) {
-                str += "\033[31m Error: " + res.error + " \033[0m";
-              }
-              console.log(str);
-            });
-          }
-        }
-      });
-    });
-  });
-});
 ```
-## Using a proxy
-If you're behind a corporate firewall or would like to utilize a proxy, define it in the constructor like this:
-
-```javascript
-var sauce = new SauceLabs({
-  username: "your-sauce-username",
-  password: "your-sauce-api-key",
-  proxy: "https://your-proxy.com:8000"
-});
-```
-
 
 ## Supported Methods
 

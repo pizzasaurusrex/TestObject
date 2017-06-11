@@ -4,7 +4,7 @@
   "description": "A wrapper around the Test Object rest API",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha"
   },
   "author": "pizzasaurusrex",
   "license": "ISC",
