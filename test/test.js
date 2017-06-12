@@ -118,10 +118,9 @@ describe('once instantiated', function() {
       testObject.reports(null, function(err, resp, body) {
         resp.statusCode.should.equal(200);
         done();
-      })
-
-    })
-  })
-})
+      });
+    });
+  });
+});
 
 
