@@ -28,8 +28,8 @@ describe('once instantiated', function() {
 
   describe('#updateTestStatus', function() {
     it('Updates the Test status', function(done) {
-      let status = {"passed": true};
-      testObject.updateTest('e492a939-3717-434c-9421-187a4c4a2361', status, function(err, resp) {
+      let status = {"passed": false};
+      testObject.updateTest('218a6a8c-4d42-4479-b6f9-d7cb7de4d8db', status, function(err, resp) {
         resp.statusCode.should.equal(204);
         done();
       });
@@ -38,10 +38,10 @@ describe('once instantiated', function() {
 
   describe('#skipTest', function() {
     it('Sets the test status as skipped', function(done) {
-      testObject.skipTest('e492a939-3717-434c-9421-187a4c4a2361', function(err, resp) {
+      testObject.skipTest('218a6a8c-4d42-4479-b6f9-d7cb7de4d8db', function(err, resp) {
         resp.statusCode.should.equal(204);
         done();
-      });
+        });
     });
   });
 
@@ -50,8 +50,8 @@ describe('once instantiated', function() {
       testObject.getDevices (function(err, resp, body) {
         body.should.be.a('string');
         resp.statusCode.should.equal(200);
-        done();
       });
+      done();
     });
   });
 
@@ -60,8 +60,8 @@ describe('once instantiated', function() {
       testObject.getAllDevices(function(err, resp, body) {
         body.should.be.a('string');
         resp.statusCode.should.equal(200);
-        done();
       });
+      done();
     });
   });
 
@@ -113,8 +113,18 @@ describe('once instantiated', function() {
     });
   });
 
+  describe('Devices #getDeviceInfo', function() {
+    it('GETs information for a particular device', function(done) {
+      testObject.getDeviceInfo('iPad_Air_16GB_real', function(err, resp, body) {
+        resp.statusCode.should.equal(200);
+        done();
+      })
+    })
+  })
+
   describe('default #Reports', function() {
     it('should Get something', function(done) {
+      this.timeout(3000);
       testObject.reports(null, function(err, resp, body) {
         resp.statusCode.should.equal(200);
         done();

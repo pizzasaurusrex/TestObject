@@ -85,7 +85,7 @@ const myAccount = new TestObject({
      <tr>
        <td>
          GET /devices <br />
-         Get allReturns a list of all devices, including those not currently available for testing
+         Returns a list per data center containing all devices, including private devices and those not currently available for testing. This endpoint requires API Key authentication.
        </td>
        <td>
          getDevices(cb) -> cb(err, res, body) 
@@ -104,7 +104,7 @@ const myAccount = new TestObject({
      <tr>
        <td>
          GET /devices/all/available <br />
-         Get a list of all devices available for testing. This endpoint requires API Key authentication, and will also return your private devices
+         Returns a list per data center containing the IDs of all devices currently available for testing, including private devices. This endpoint requires API Key authentication.
        </td>
        <td>
          getAllAvailable(cb) -> cb(err, res, body) 
