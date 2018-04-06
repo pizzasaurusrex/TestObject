@@ -85,15 +85,6 @@ describe('once instantiated', function() {
     });
   });
 
-  describe('Devices #getDeviceImage', function() {
-    it('GETs image of selected device', function(done) {
-      testObject.getDeviceImage('iPad_Air_16GB_real', function(err, resp, body) {
-        resp.statusCode.should.equal(200);
-        done();
-      });
-    });
-  });
-
   describe('Devices #getPopular', function() {
     it('GETs popular devices based on region', function(done) {
       testObject.getPopular(function(err, resp, body) {
